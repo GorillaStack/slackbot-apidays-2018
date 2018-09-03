@@ -1,0 +1,55 @@
+# Welcome to Serverless!
+
+service: serverless-slack-memebot # NOTE: update this with your service name
+
+frameworkVersion: ">1.8.0"
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  timeout: 20
+
+plugins:
+  - serverless-offline
+
+# you can overwrite defaults here
+#  stage: dev
+#  region: us-east-1
+
+# you can add statements to the Lambda function's IAM Role here
+#  iamRoleStatements:
+#    - Effect: "Allow"
+#      Action:
+#        - "s3:ListBucket"
+#      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
+#    - Effect: "Allow"
+#      Action:
+#        - "s3:PutObject"
+#      Resource:
+#        Fn::Join:
+#          - ""
+#          - - "arn:aws:s3:::"
+#            - "Ref" : "ServerlessDeploymentBucket"
+#            - "/*"
+
+# you can define service wide environment variables here
+#  environment:
+#    variable1: value1
+
+# you can add packaging information here
+package:
+ # include:
+ #   - include-me.js
+ #   - include-me-dir/**
+ exclude:
+   - src/**
+   - package-lock.json
+
+functions:
+  # Handler for our /memebot command
+  memebot_slash_command:
+    handler: dist/functions/memebot_slash_command.handler
+    events:
+     - http:
+         path: memebot
+         method: post
