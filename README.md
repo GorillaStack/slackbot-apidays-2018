@@ -1,11 +1,10 @@
-# serverless-slack-memebot
+# serverless-slackbot for API Days 2018
 
-We implemented a memebot for slack, built on the [serverless framework](https://serverless.com/) to use as a demonstration for the [Disruptors in Tech meetup](https://www.meetup.com/en-AU/Disruptors-in-Tech/).  [See slides](https://slid.es/em0ney/sls).  It was implemented by [GorillaStack](www.gorillastack.com) to serve as a boilerplate for similar serverless projects.
+We implemented a slackbot, built on the [serverless framework](https://serverless.com/) to use as a demonstration for [API Days 2018](https://www.apidays.com.au).  It was implemented by [GorillaStack](www.gorillastack.com) to serve as a boilerplate for similar serverless projects.
 
-The key purpose of the talk was to demonstrate how to work with frameworks and minimise risks around framework changes and provider lock-in.
+The key purpose of the talk was to demonstrate how to work with the serverless framework and slack for rapid prototyping that is commonly required in 20% time.
 
 ## Usage
-
 
 ### Development environment
 
@@ -55,6 +54,9 @@ Terminal3:
 #!/bin/bash
 
 ## Use ngrok to expose our localhost:3000 to a public https endpoint
+# Please note that this is a tunnel from your public 3000 to the whole internet.
+# Consider alternatives based on your security posture around your machine, running this on a docker container
+# or vagrant vm to reduce blast radius
 ngrok http 3000
 ```
 

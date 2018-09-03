@@ -1,12 +1,12 @@
 # Welcome to Serverless!
 
-service: serverless-slack-memebot # NOTE: update this with your service name
+service: serverless-slackbot # NOTE: update this with your service name
 
 frameworkVersion: ">1.8.0"
 
 provider:
   name: aws
-  runtime: nodejs4.3
+  runtime: nodejs8.10
   timeout: 20
 
 plugins:
@@ -53,3 +53,10 @@ functions:
      - http:
          path: memebot
          method: post
+  numbers_slash_command:
+    handler: dist/functions/numbers_slash_command.handler
+    events:
+     - http:
+         path: numbers
+         method: post
+

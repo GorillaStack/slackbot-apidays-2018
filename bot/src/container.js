@@ -12,8 +12,9 @@ import config from './lib/config/project.config';
 import getLogger from './lib/logger';
 
 import SlackApiManager from './lib/slack_api_manager';
-import MemeApiManager from './lib/meme_api_manager';
-import MemebotApi from './lib/memebot_api';
+import MemeApiManager from './lib/meme/meme_api_manager';
+import MemebotApi from './lib/meme/memebot_api';
+import NumbersApiManager from './lib/numbers/numbers_api_manager';
 
 export default function getContainer() {
   const bottle = new Bottle();
@@ -39,6 +40,15 @@ export default function getContainer() {
     service.setLogger(container.Logger);
     service.setSlackApiManager(container.SlackApiManager);
     service.setMemeApiManager(container.MemeApiManager);
+
+    return service;
+  });
+
+  bottle.factory('NumbersApiManager', container => {
+    const service = new NumbersApiManager();
+
+    service.setLogger(container.Logger);
+    service.setSlackApiManager(container.SlackApiManager);
 
     return service;
   });

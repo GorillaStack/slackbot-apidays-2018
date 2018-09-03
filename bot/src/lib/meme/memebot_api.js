@@ -4,6 +4,8 @@
 * Higher level logic to handle slash commands
 */
 
+import co from 'co';
+
 // =============
 // Constants
 // =============
@@ -43,7 +45,7 @@ export default class MemebotApi {
             title: '/memebot search searchTerm',
             value: 'search for a specific meme template\n```'
                     + '/memebot search yuno\n'
-                    + '/memebot search milk\n'
+                    + '/memebot search saltbae\n'
                     + '/memebot search oprah\n```',
             short: false,
           },

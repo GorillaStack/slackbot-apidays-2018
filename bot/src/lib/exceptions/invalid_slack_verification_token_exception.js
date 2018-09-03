@@ -1,6 +1,6 @@
-import MemebotException from './memebot_exception';
+import ChatbotException from './chatbot_exception';
 
-export default class InvalidSlackVerificationTokenException extends MemebotException {
+export default class InvalidSlackVerificationTokenException extends ChatbotException {
   constructor(token) {
     super(`Invalid slack verification token '${token}' recieved`);
   }
