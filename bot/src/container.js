@@ -15,6 +15,7 @@ import SlackApiManager from './lib/slack_api_manager';
 import MemeApiManager from './lib/meme/meme_api_manager';
 import MemebotApi from './lib/meme/memebot_api';
 import NumbersApiManager from './lib/numbers/numbers_api_manager';
+import TronaldDumpApiManager from './lib/tronald_dump/tronald_dump_api_manager';
 
 export default function getContainer() {
   const bottle = new Bottle();
@@ -52,6 +53,16 @@ export default function getContainer() {
 
     return service;
   });
+
+  bottle.factory('TronaldDumpApiManager', container => {
+    const service = new TronaldDumpApiManager();
+
+    service.setLogger(container.Logger);
+    service.setSlackApiManager(container.SlackApiManager);
+
+    return service;
+  });
+
 
   return bottle.container;
 }

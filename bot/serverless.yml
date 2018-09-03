@@ -59,4 +59,9 @@ functions:
      - http:
          path: numbers
          method: post
-
+  tronald_dump_slash_command:
+    handler: dist/functions/tronald_dump_slash_command.handler
+    events:
+     - http:
+         path: tronald_dump
+         method: post
