@@ -1,7 +1,7 @@
 /**
 * numbers_api_manager
 *
-* Interface with the memegen.link api to generate our memes
+* Interface with the numbers api to get us some interesting facts on numbers
 */
 
 import rp from 'request-promise-native';
